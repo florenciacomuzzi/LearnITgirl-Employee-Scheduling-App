@@ -2,7 +2,7 @@
 
 Project Origin
 ==============
-The following is a project completed under a LearnIT,girl! mentorship.
+The following is a project completed under a LearnIT, Girl! mentorship.
 
 About LearnIT, Girl
 --------------------
