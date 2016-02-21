@@ -1,6 +1,6 @@
 # LearnITgirl-Employee-Scheduling-App
 
-Project Origin
+<center>Project Origin</center>
 ==============
 The following is a project completed under a LearnIT, Girl! mentorship.
 
