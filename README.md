@@ -25,6 +25,12 @@ A call center has multiple clients. Some contracts require a number of dedicated
 
 Week 1
 --------
+Tasks for this week:
+
+- Choose between a local or "cloud" development environment.
+I chose a cloud environment. For more:
+     www.koding.com
+
 
 
 Week 2
