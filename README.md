@@ -10,7 +10,7 @@ About LearnIT, Girl
  "Learn IT, Girl!" is an international mentorship program developed by the 2014 Anita Borg Scholars from Romania, Poland and U.K. The program's aim is to help women learn a programming language while doing an awesome project!
 
  For more information, visit the site:
-    https://www.learnitgirl.com
+    [https://www.learnitgirl.com]
 
 About The Mentee
 -----------------
@@ -28,8 +28,8 @@ Week 1
 Tasks for this week:
 
 - Choose between a local or "cloud" development environment.
-I chose a cloud environment. For more:
-     www.koding.com
+I chose a cloud environment. For more: [www.koding.com]
+- Complete mentor lesson: Intro to Web Development
 
 
 
@@ -40,9 +40,9 @@ I have created a simple diagram to organize the information I want to store. The
 Tasks for this week:
 
 - Review Ruby on Rails: Active Record Associations guide
-    http://guides.rubyonrails.org/association_basics.html
+    [http://guides.rubyonrails.org/association_basics.html]
 
 - Read Michael Hartl's Ruby on Rails Tutorial: Ch. 3 MVC
-    https://www.railstutorial.org/book/beginning#sec-mvc
+    [https://www.railstutorial.org/book/beginning#sec-mvc]
 
 - Complete mentor lesson on domain-modelling
