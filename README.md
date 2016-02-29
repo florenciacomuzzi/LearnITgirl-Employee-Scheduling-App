@@ -59,28 +59,37 @@ Rails supports six types of associations:
     belongs_to
 
 - sets up a *one-to-one* connection with another model, such that each instance of the declaring model "belongs to" one instance of the other model... think of object composition
+- this class *contains the foreign key*
 - For example, if your application includes customers and orders, and each order can be assigned to exactly one customer, you'd declare the order model this way
+
     class Order < ActiveRecord::Base
         belongs_to :customer
     end
+
 
     has_one
 
 - sets up a one-to-one connection with another model but, unlike *belongs_to*, this association indicates that each instance of a model contains or possesses **one** instance of another model.
 - use where it makes sense i.e. it makes more sense to say that a supplier owns an account than that an account owns a supplier
 - For example, if each supplier in your application has only one account, you'd declare the supplier model like this
+
+
     class Supplier < ActiveRecord::Base
         has_one :account
     end
+
 
     has_many
 
 - indicates a one-to-many connection with another model
 - This association indicates that each instance of the model has zero or more instances of another model.
 - For example, in an application containing customers and orders, the customer model could be declared like this
+
+
     class Customer < ActiveRecord::Base
         has_many :orders
     end
+
 
     has_many :through
 
@@ -88,6 +97,7 @@ Rails supports six types of associations:
 - This association indicates that the declaring model can be matched with zero or more instances of another model by proceeding through a third model.
 - set up a has_many :through relationship if you need to work with the relationship model as an independent entity
 - For example, consider a medical practice where patients make appointments to see physicians.
+
 
     class Physician < ActiveRecord::Base
         has_many :appointments
@@ -105,7 +115,10 @@ Rails supports six types of associations:
     end
 
 
+
+
     has_one :through
+
 
 - sets up a one-to-one connection with another model
 - This association indicates that the declaring model can be matched with one instance of another model by proceeding through a third model.
@@ -115,5 +128,14 @@ Rails supports six types of associations:
 
     has_and_belongs_to_many
 
+
+
 - creates a direct many-to-many connection with another model, with no intervening model
 - For example, if your application includes assemblies and parts, with each assembly having many parts and each part appearing in many assemblies
+
+Model-View-Controller (MVC)
+------------------------------
+- architectural pattern which enforces a separation between “domain logic” (also called “business logic”) from the input and presentation logic associated with a graphical user interface (GUI)
+- In the case of web applications, the “domain logic” typically consists of data models for things like users, articles, and products, and the GUI is just a web page in a web browser.
+- When interacting with a Rails application, a browser sends a request, which is received by a web server and passed on to a Rails controller.
+- In some cases, the *controller* will immediately render a *view*, which is a template that gets converted to HTML and sent back to the browser. More commonly for dynamic sites, the controller interacts with a *model* which is a Ruby object that represents an element of the site (such as a user) and is in charge of communicating with the database
