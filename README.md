@@ -139,3 +139,42 @@ Model-View-Controller (MVC)
 - In the case of web applications, the “domain logic” typically consists of data models for things like users, articles, and products, and the GUI is just a web page in a web browser.
 - When interacting with a Rails application, a browser sends a request, which is received by a web server and passed on to a Rails controller.
 - In some cases, the *controller* will immediately render a *view*, which is a template that gets converted to HTML and sent back to the browser. More commonly for dynamic sites, the controller interacts with a *model* which is a Ruby object that represents an element of the site (such as a user) and is in charge of communicating with the database
+
+
+Domain-Modeling
+----------------
+Imagine a simple music database that keeps a list of our favorite Songs, and associates them with an Artist and a Genre.
+
+The "domain-model" for our resources is a description of the resources and their relationships.
+
+Music_DB resources:
+    Genre
+        name:string
+        has_many Artists
+
+    Artist
+        name:string
+        genre_id:integer  
+            (when you name things this way, the rails framework *knows* that you want it to be a ‘*foreign key*’ that refers to another resource)
+            Note that database indexes always start at 1
+        belongs_to Genre
+        has_many Songs
+
+    Song
+        name:string
+        video:text
+        artist_id:integer
+        belongs_to Artist
+
+Basic Steps To Create New Ruby on Rails web app
+--------------------------------------
+0. Decide what resources you are going to create
+Sometimes this can be the hardest part!  Planning up front will save you time.
+1. rails new (insert your app name here)
+2. cd (your app name)
+3. rails g (generate controllers and scaffolds)
+4. rake db:migrate (if you’ve generated scaffolds, since they have back-end database tables)
+5. set a root route in the config/routes.rb file
+6. edit models to include relationships (such as has_many and belongs_to), and validations
+7. Preview (start your rails server and make sure it starts)
+8. Style your app (modify views, include css frameworks like bootstrap, change wording on forms)
