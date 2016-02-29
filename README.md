@@ -148,6 +148,7 @@ Imagine a simple music database that keeps a list of our favorite Songs, and ass
 The "domain-model" for our resources is a description of the resources and their relationships.
 
 Music_DB resources:
+
     Genre
         name:string
         has_many Artists
@@ -168,8 +169,7 @@ Music_DB resources:
 
 Basic Steps To Create New Ruby on Rails web app
 --------------------------------------
-0. Decide what resources you are going to create
-Sometimes this can be the hardest part!  Planning up front will save you time.
+0. Decide what resources you are going to create. 
 1. rails new (insert your app name here)
 2. cd (your app name)
 3. rails g (generate controllers and scaffolds)
