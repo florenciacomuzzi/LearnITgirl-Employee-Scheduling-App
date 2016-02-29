@@ -46,3 +46,74 @@ Tasks for this week:
     [https://www.railstutorial.org/book/beginning#sec-mvc]
 
 - Complete mentor lesson on domain-modelling
+
+
+Associations
+--------------
+In Rails, an association is a connection or *relationship* between two Active Record models.
+
+For example, by declaring that one model belongs_to another, you instruct Rails to maintain Primary Key-Foreign Key information between instances of the two models, and you also get a number of utility methods added to your model.
+
+Rails supports six types of associations:
+
+    belongs_to
+
+- sets up a *one-to-one* connection with another model, such that each instance of the declaring model "belongs to" one instance of the other model... think of object composition
+- For example, if your application includes customers and orders, and each order can be assigned to exactly one customer, you'd declare the order model this way
+    class Order < ActiveRecord::Base
+        belongs_to :customer
+    end
+
+    has_one
+
+- sets up a one-to-one connection with another model but, unlike *belongs_to*, this association indicates that each instance of a model contains or possesses **one** instance of another model.
+- use where it makes sense i.e. it makes more sense to say that a supplier owns an account than that an account owns a supplier
+- For example, if each supplier in your application has only one account, you'd declare the supplier model like this
+    class Supplier < ActiveRecord::Base
+        has_one :account
+    end
+
+    has_many
+
+- indicates a one-to-many connection with another model
+- This association indicates that each instance of the model has zero or more instances of another model.
+- For example, in an application containing customers and orders, the customer model could be declared like this
+    class Customer < ActiveRecord::Base
+        has_many :orders
+    end
+
+    has_many :through
+
+- used to set up a many-to-many connection with another model
+- This association indicates that the declaring model can be matched with zero or more instances of another model by proceeding through a third model.
+- set up a has_many :through relationship if you need to work with the relationship model as an independent entity
+- For example, consider a medical practice where patients make appointments to see physicians.
+
+    class Physician < ActiveRecord::Base
+        has_many :appointments
+        has_many :patients, through: :appointments
+    end
+
+    class Appointment < ActiveRecord::Base
+        belongs_to :physician
+        belongs_to :patient
+    end
+
+    class Patient < ActiveRecord::Base
+        has_many :appointments
+        has_many :physicians, through: :appointments
+    end
+
+
+    has_one :through
+
+- sets up a one-to-one connection with another model
+- This association indicates that the declaring model can be matched with one instance of another model by proceeding through a third model.
+- For example, if each supplier has one account, and each account is associated with one account history.
+
+
+
+    has_and_belongs_to_many
+
+- creates a direct many-to-many connection with another model, with no intervening model
+- For example, if your application includes assemblies and parts, with each assembly having many parts and each part appearing in many assemblies
