@@ -1,3 +1,5 @@
+#f for formbuilder object
+#used to build two labels and two text fields, one each for the name and phone number of a client
 <%= form_for(@client) do |f| %>
   <% if @client.errors.any? %>
     <div id="error_explanation">
@@ -14,6 +16,10 @@
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :phone_number %><br>
+    <%= f.text_field :phone_number %>
   </div>
   <div class="actions">
     <%= f.submit %>
