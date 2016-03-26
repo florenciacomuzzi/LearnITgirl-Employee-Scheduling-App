@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20160306205953) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
+    #t.text     "phone_number" #added this
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
