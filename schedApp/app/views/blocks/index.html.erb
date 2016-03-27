@@ -17,10 +17,8 @@
   <tbody>
     <% @blocks.each do |block| %>
       <tr>
-        <td><%= t = block.start_time %>   </td>
-        <td><%= tb = block.end_time %>   </td>
-        <td><%= t.strftime("%r") %>   </td>
-        <td><%= tb.strftime("%r")  %>   </td>
+        <td><%= block.start_time.to_formatted_s(:time) %>   </td>
+        <td><%= block.end_time.to_formatted_s(:time) %>   </td>
         <td><%= link_to 'Show', block %></td>
         <td><%= link_to 'Edit', edit_block_path(block) %></td>
         <td><%= link_to 'Destroy', block, method: :delete, data: { confirm: 'Are you sure?' } %></td>
