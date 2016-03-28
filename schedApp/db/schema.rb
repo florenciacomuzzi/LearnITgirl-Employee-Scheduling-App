@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160327222628) do
+ActiveRecord::Schema.define(version: 20160328003439) do
 
   create_table "blocks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -41,5 +41,13 @@ ActiveRecord::Schema.define(version: 20160327222628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "shifts", force: :cascade do |t|
+    t.integer  "block_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shifts", ["block_id"], name: "index_shifts_on_block_id"
 
 end

@@ -50,6 +50,7 @@ class EmployeesController < ApplicationController
 
 
 
+
   # PATCH/PUT /employees/1
   # PATCH/PUT /employees/1.json
   def update
@@ -74,20 +75,15 @@ class EmployeesController < ApplicationController
     end
   end
 
-
+  #
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_employee
       @employee = Employee.find(params[:id])
     end
-
-
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  private
   def employee_params
     params.require(:employee).permit(:name, :phone)
-    # params.fetch(:employee, {})
+   # params.fetch(:shift, {})
   end
 
 
